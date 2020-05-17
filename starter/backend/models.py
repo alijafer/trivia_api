@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 
 database_name = "trivia"
-database_path = "postgres://{}/{}".format('localhost:5432', database_name)
+database_path = "postgres://{}:{}@{}/{}".format('postgres','1','localhost:5432', database_name)
 
 db = SQLAlchemy()
 
@@ -76,3 +76,15 @@ class Category(db.Model):
       'id': self.id,
       'type': self.type
     }
+'''
+paginate_questions 
+'''
+def paginate_questions(request, questions, questions_number):
+    page = request.args.get('page', 1, type=int)
+    start =  (page - 1) * questions_number
+    end = start + questions_number
+
+    questions  = [question.format() for question in questions]
+    current_questions  = questions [start:end]
+
+    return current_questions 
