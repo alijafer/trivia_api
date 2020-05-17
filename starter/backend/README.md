@@ -31,7 +31,7 @@ This will install all of the required packages we selected within the `requireme
 - [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/#) is the extension we'll use to handle cross origin requests from our frontend server. 
 
 ## Database Setup (REQUER)
-Install [PostgreSQL] (https://www.postgresql.org/download/) in your system and Create database using `psql` terminal
+Install [PostgreSQL](https://www.postgresql.org/download/) in your system and Create database using `psql` terminal
 ```bash
 Create database trivia;
 ```
