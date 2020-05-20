@@ -2,6 +2,7 @@
 __pycache__
 venv
 env
+node_modules
 # OS generated files #
 ######################
 .DS_Store
@@ -11,3 +12,4 @@ env
 .Trashes
 ehthumbs.db
 Thumbs.db
+projects/02_trivia_api/starter/package-lock.json
