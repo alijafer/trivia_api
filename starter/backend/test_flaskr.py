@@ -101,7 +101,7 @@ class TriviaTestCase(unittest.TestCase):
         Test the delete the question exit in db
         :pass
         '''
-        id_var=49                                               #var for pass the id to delete the record has same the id
+        id_var=2                                               #var for pass the id to delete the record has same the id
         #code for test DELETE methods  that send DELETE reaquset to /example/<int:id>
         res = self.client().delete('/questions/{}'.format(id_var))
         data = json.loads(res.data)                             #featch the delete response 
