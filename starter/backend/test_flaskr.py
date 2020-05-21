@@ -95,39 +95,35 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(data['message'], 'resource not found') #confirm response has element equal "message": "resource not found"
 
 
-    
+
+
     def test_sucsse_delete_question(self):
         '''
         Test the delete the question exit in db
         :pass
         '''
-        id_var=2                                               #var for pass the id to delete the record has same the id
         #code for test DELETE methods  that send DELETE reaquset to /example/<int:id>
-        res = self.client().delete('/questions/{}'.format(id_var))
+        res = self.client().delete('/questions/14')
         data = json.loads(res.data)                             #featch the delete response 
 
-        self.assertEqual(res.status_code, 200)                  #confirm the status response code is 200 is mean Ok 
         self.assertEqual(data['success'], True)
         self.assertEqual(data['message'], "Question successfully deleted")
         self.assertTrue(data['delete_id'])
         
 
-    
-    def test_delete_question_has_deleted(self):
+    def test_delete_question_not_exit(self):
         '''
         Test the delete the question not exit in db 
         becesed cannot delete record not exit in db
         :pass
         '''
         #code for test DELETE methods  that send DELETE reaquset to /example/<int:id>
-        res = self.client().delete('/questions/{}'.format(1))
+        res = self.client().delete('/questions/62334')
         data = json.loads(res.data)                             #featch the delete response 
 
         self.assertEqual(res.status_code, 422)                  #confirm the status response code is 422 is mean unprocessable 
         self.assertEqual(data['success'], False)
         self.assertEqual(data['message'], "unprocessable")
-
-
         
     def test_create_new_question(self):
         '''
